@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const newsContainer = document.getElementById("news-container");
 
-    // Fetch the list of articles from the JSON file
     fetch("data/articles.json")
         .then(response => {
             if (!response.ok) {
@@ -15,25 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Load each article
             Promise.all(
-                files.map(filename =>
-                    fetch(`data/${filename}`)
+                files.map(file =>
+                    fetch(`data/${file.filename}`)
                         .then(res => {
                             if (!res.ok) {
-                                throw new Error(`Error fetching ${filename}: ${res.status}`);
+                                throw new Error(`Error fetching ${file.filename}: ${res.status}`);
                             }
                             return res.text();
                         })
                         .then(articleHTML => {
                             const article = document.createElement("article");
-                            article.innerHTML = articleHTML;
+                            const title = document.createElement("h2");
+                            title.textContent = file.title;
+                            article.appendChild(title);
+                            article.innerHTML += articleHTML;
                             return article;
                         })
                 )
             )
             .then(articles => {
-                newsContainer.innerHTML = ""; // Clear the loading message
+                newsContainer.innerHTML = ""; // Clear loading message
                 articles.forEach(article => newsContainer.appendChild(article));
             })
             .catch(err => {
