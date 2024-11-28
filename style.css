@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -36,4 +37,28 @@ article {
 
 article h2 {
     color: #333;
+}
+
+/* AI News Section Styles */
+#ai-news-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+#ai-news-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Poker News Section Styles */
+#poker-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+#poker-container h2 {
+    color: #333;
+    margin-bottom: 10px;
 }
