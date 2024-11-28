@@ -52,11 +52,23 @@ document.addEventListener("DOMContentLoaded", () => {
         if (category === "AI") {
             aiNewsContainer.style.display = "block";
             pokerContainer.style.display = "none";
+            highlightButton("AI");
             console.log("Showing AI News section");
         } else if (category === "Poker") {
             aiNewsContainer.style.display = "none";
             pokerContainer.style.display = "block";
+            highlightButton("Poker");
             console.log("Showing Poker News section");
+        }
+    }
+
+    function highlightButton(category) {
+        if (category === "AI") {
+            showAINewsButton.classList.add("active");
+            showPokerNewsButton.classList.remove("active");
+        } else if (category === "Poker") {
+            showAINewsButton.classList.remove("active");
+            showPokerNewsButton.classList.add("active");
         }
     }
 
@@ -116,4 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = "<p>Error loading articles.</p>";
         });
     }
+
+    // Initialize with AI category highlighted
+    highlightButton("AI");
 });
