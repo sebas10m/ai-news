@@ -4,21 +4,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const showAINewsButton = document.getElementById("show-ai-news");
     const showPokerNewsButton = document.getElementById("show-poker-news");
 
-    // Debugging logs
-    console.log("Page loaded, initializing scripts");
+    // Swipe detection variables
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let currentCategory = "AI"; // Track the currently displayed category
 
     // Event listeners for buttons
     showAINewsButton.addEventListener("click", () => {
-        console.log("AI News button clicked");
         showSection("AI");
     });
 
     showPokerNewsButton.addEventListener("click", () => {
-        console.log("Poker News button clicked");
         showSection("Poker");
     });
 
-    // Function to toggle between sections
+    // Swipe detection logic
+    document.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchStartX - touchEndX;
+
+        // Check for left swipe
+        if (swipeDistance > 50) {
+            console.log("Swiped left: Switching to next category");
+            switchCategory();
+        }
+    }
+
+    function switchCategory() {
+        if (currentCategory === "AI") {
+            currentCategory = "Poker";
+            showSection("Poker");
+        } else {
+            currentCategory = "AI";
+            showSection("AI");
+        }
+    }
+
     function showSection(category) {
         if (category === "AI") {
             aiNewsContainer.style.display = "block";
@@ -40,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(files => {
-            console.log("Fetched articles.json:", files); // Debugging log
+            console.log("Fetched articles.json:", files);
             const aiArticles = files.filter(file => file.category === "AI");
             const pokerArticles = files.filter(file => file.category === "Poker");
 
@@ -87,4 +116,4 @@ document.addEventListener("DOMContentLoaded", () => {
             container.innerHTML = "<p>Error loading articles.</p>";
         });
     }
-}); // Ensure this is the final closing brace
+});
