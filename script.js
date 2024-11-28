@@ -1,8 +1,54 @@
 document.addEventListener("DOMContentLoaded", () => {
     const aiNewsContainer = document.getElementById("ai-news-container");
     const pokerContainer = document.getElementById("poker-container");
+    const showAINewsButton = document.getElementById("show-ai-news");
+    const showPokerNewsButton = document.getElementById("show-poker-news");
 
-    // Load articles and sort them by category
+    // Event listeners for buttons
+    showAINewsButton.addEventListener("click", () => {
+        showSection("AI");
+    });
+
+    showPokerNewsButton.addEventListener("click", () => {
+        showSection("Poker");
+    });
+
+    // Swipe detection logic
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchStartX - touchEndX;
+        if (swipeDistance > 50) {
+            // Swipe left
+            showSection("Poker");
+        } else if (swipeDistance < -50) {
+            // Swipe right
+            showSection("AI");
+        }
+    }
+
+    // Function to show a section
+    function showSection(category) {
+        if (category === "AI") {
+            aiNewsContainer.style.display = "block";
+            pokerContainer.style.display = "none";
+        } else if (category === "Poker") {
+            aiNewsContainer.style.display = "none";
+            pokerContainer.style.display = "block";
+        }
+    }
+
+    // Initial article loading (as before)
     fetch("data/articles.json")
         .then(response => {
             if (!response.ok) {
@@ -11,19 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then(files => {
-            if (files.length === 0) {
-                aiNewsContainer.innerHTML = "<p>No AI news articles found.</p>";
-                pokerContainer.innerHTML = "<p>No Poker news articles found.</p>";
-                return;
-            }
-
             const aiArticles = files.filter(file => file.category === "AI");
             const pokerArticles = files.filter(file => file.category === "Poker");
 
-            // Load AI articles
             loadArticles(aiArticles, aiNewsContainer);
-
-            // Load Poker articles
             loadArticles(pokerArticles, pokerContainer);
         })
         .catch(err => {
@@ -32,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
             pokerContainer.innerHTML = "<p>Error loading Poker articles list.</p>";
         });
 
-    // Function to load articles into a container
     function loadArticles(articles, container) {
         if (articles.length === 0) {
             container.innerHTML = "<p>No articles found in this category.</p>";

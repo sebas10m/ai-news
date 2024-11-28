@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Latest News</h1>
-    </header>
-    <main>
-        <section id="ai-news-container">
-            <h2>AI News</h2>
-            <p>Loading AI news articles...</p>
-        </section>
-        <section id="poker-container">
-            <h2>Poker News</h2>
-            <p>Loading Poker news articles...</p>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 Static News Site</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+<header>
+    <h1>Latest News</h1>
+    <nav>
+        <button id="show-ai-news">AI News</button>
+        <button id="show-poker-news">Poker News</button>
+    </nav>
+</header>
+<main>
+    <section id="ai-news-container">
+        <h2>AI News</h2>
+        <p>Loading AI news articles...</p>
+    </section>
+    <section id="poker-container" style="display: none;">
+        <h2>Poker News</h2>
+        <p>Loading Poker news articles...</p>
+    </section>
+</main>
+<footer>
+    <p>© 2024 Static News Site</p>
+</footer>
