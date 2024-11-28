@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             )
             .then(articles => {
                 newsContainer.innerHTML = ""; // Clear loading message
-                articles.forEach(article => newsContainer.appendChild(article));
+                // Prepend each article to the container to display the latest first
+                articles.forEach(article => newsContainer.prepend(article));
             })
             .catch(err => {
                 console.error("Error loading articles:", err);
