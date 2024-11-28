@@ -61,6 +61,13 @@ nav {
     transform: scale(0.98);
 }
 
+/* Highlight active button */
+.nav-button.active {
+    background-color: #007bff; /* Highlight color */
+    color: #fff;
+    border-color: #007bff;
+}
+
 /* Article Section */
 article {
     border-bottom: 1px solid #ccc;
