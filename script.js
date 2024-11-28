@@ -13,31 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showSection("Poker");
     });
 
-    // Swipe detection logic
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    document.addEventListener("touchstart", (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener("touchend", (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeDistance = touchStartX - touchEndX;
-        if (swipeDistance > 50) {
-            // Swipe left
-            showSection("Poker");
-        } else if (swipeDistance < -50) {
-            // Swipe right
-            showSection("AI");
-        }
-    }
-
-    // Function to show a section
+    // Function to toggle between sections
     function showSection(category) {
         if (category === "AI") {
             aiNewsContainer.style.display = "block";
@@ -48,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Initial article loading (as before)
+    // Fetch and load articles
     fetch("data/articles.json")
         .then(response => {
             if (!response.ok) {
@@ -65,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => {
             console.error("Error fetching articles.json:", err);
-            aiNewsContainer.innerHTML = "<p>Error loading AI articles list.</p>";
-            pokerContainer.innerHTML = "<p>Error loading Poker articles list.</p>";
+            aiNewsContainer.innerHTML = "<p>Error loading AI articles.</p>";
+            pokerContainer.innerHTML = "<p>Error loading Poker articles.</p>";
         });
 
     function loadArticles(articles, container) {
@@ -79,28 +55,4 @@ document.addEventListener("DOMContentLoaded", () => {
             articles.map(file =>
                 fetch(`data/${file.filename}`)
                     .then(res => {
-                        if (!res.ok) {
-                            throw new Error(`Error fetching ${file.filename}: ${res.status}`);
-                        }
-                        return res.text();
-                    })
-                    .then(articleHTML => {
-                        const article = document.createElement("article");
-                        const title = document.createElement("h2");
-                        title.textContent = file.title;
-                        article.appendChild(title);
-                        article.innerHTML += articleHTML;
-                        return article;
-                    })
-            )
-        )
-        .then(loadedArticles => {
-            container.innerHTML = ""; // Clear loading message
-            loadedArticles.forEach(article => container.prepend(article));
-        })
-        .catch(err => {
-            console.error("Error loading articles:", err);
-            container.innerHTML = "<p>Error loading articles.</p>";
-        });
-    }
-});
+                        if (

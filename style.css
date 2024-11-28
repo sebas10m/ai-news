@@ -1,3 +1,39 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 /* Navigation Buttons */
 nav {
     display: flex;
@@ -8,7 +44,7 @@ nav {
 .nav-button {
     background-color: #333;
     color: #fff;
-    border: none;
+    border: 1px solid #333;
     padding: 10px 20px;
     margin: 0 10px;
     cursor: pointer;
@@ -25,7 +61,17 @@ nav {
     transform: scale(0.98);
 }
 
-/* Ensure sections transition smoothly */
+/* Article Section */
+article {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+article h2 {
+    color: #333;
+}
+
 section {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
