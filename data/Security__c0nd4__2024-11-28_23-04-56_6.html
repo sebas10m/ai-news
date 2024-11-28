@@ -1,0 +1,25 @@
+<h1> ASREP Roasting </h1>
+
+<p> ASREP Roasting is an attack that allows an attacker to obtain a user's password by exploiting a misconfiguration in Kerberos pre-authentication. </p>
+
+<h2> How ASREP Roasting Works </h2>
+
+<p> To understand ASREP Roasting, it's essential to have a basic understanding of the Kerberos authentication protocol. The ASREC and ASREP steps of the protocol are crucial to the attack. </p>
+
+<p> When Kerberos pre-authentication is enabled, the client sends an encrypted timestamp with the ASREC request. This timestamp is encrypted with the user's password, and the KDC decrypts it to verify that the client is the user and not performing a replay attack. </p>
+
+<p> However, if Kerberos pre-authentication is disabled, the client can send a plain ASREC request without the encrypted timestamp. This allows an attacker to obtain an ASREP response that contains an encrypted TGT, which can be brute-forced offline to obtain the user's password. </p>
+
+<h2> Creating a Vulnerable User Account </h2>
+
+<p> To demonstrate ASREP Roasting, a vulnerable user account is created with Kerberos pre-authentication disabled. The user's password is also set to a weak password ("Password123") to facilitate the reconnaissance and cracking process. </p>
+
+<h2> Using the GetNPUsers Tool </h2>
+
+<p> The <code>getNPUsers</code> tool from the <code>impact</code> repository is used to perform the ASREP Roasting attack. The tool takes the domain name, username, and DC IP as input and sends an ASREQ request to the KDC. </p>
+
+<p> The tool returns an encrypted TGT, which can be brute-forced offline to obtain the user's password. In this example, the user's password is successfully cracked using the <code>john</code> tool. </p>
+
+<h2> Conclusion </h2>
+
+<p> ASREP Roasting is a significant attack that can be performed against systems with misconfigured Kerberos pre-authentication. This attack highlights the importance of checking for the vulnerability of Kerberos pre-authentication and removing it if possible. </p>

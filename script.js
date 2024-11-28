@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     const aiNewsContainer = document.getElementById("ai-news-container");
-    const pokerContainer = document.getElementById("poker-container");
+    const SecurityContainer = document.getElementById("security-container");
     const showAINewsButton = document.getElementById("show-ai-news");
-    const showPokerNewsButton = document.getElementById("show-poker-news");
+    const showSecurityNewsButton = document.getElementById("show-security-news");
 
     // Swipe detection variables
     let touchStartX = 0;
@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         showSection("AI");
     });
 
-    showPokerNewsButton.addEventListener("click", () => {
-        showSection("Poker");
+    showSecurityNewsButton.addEventListener("click", () => {
+        showSection("Security");
     });
 
     // Swipe detection logic
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function switchCategory() {
         if (currentCategory === "AI") {
-            currentCategory = "Poker";
-            showSection("Poker");
+            currentCategory = "Security";
+            showSection("Security");
         } else {
             currentCategory = "AI";
             showSection("AI");
@@ -51,24 +51,24 @@ document.addEventListener("DOMContentLoaded", () => {
     function showSection(category) {
         if (category === "AI") {
             aiNewsContainer.style.display = "block";
-            pokerContainer.style.display = "none";
+            SecurityContainer.style.display = "none";
             highlightButton("AI");
             console.log("Showing AI News section");
-        } else if (category === "Poker") {
+        } else if (category === "Security") {
             aiNewsContainer.style.display = "none";
-            pokerContainer.style.display = "block";
-            highlightButton("Poker");
-            console.log("Showing Poker News section");
+            SecurityContainer.style.display = "block";
+            highlightButton("Security");
+            console.log("Showing Security News section");
         }
     }
 
     function highlightButton(category) {
         if (category === "AI") {
             showAINewsButton.classList.add("active");
-            showPokerNewsButton.classList.remove("active");
-        } else if (category === "Poker") {
+            showSecurityNewsButton.classList.remove("active");
+        } else if (category === "Security") {
             showAINewsButton.classList.remove("active");
-            showPokerNewsButton.classList.add("active");
+            showSecurityNewsButton.classList.add("active");
         }
     }
 
@@ -83,15 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(files => {
             console.log("Fetched articles.json:", files);
             const aiArticles = files.filter(file => file.category === "AI");
-            const pokerArticles = files.filter(file => file.category === "Poker");
+            const SecurityArticles = files.filter(file => file.category === "Security");
 
             loadArticles(aiArticles, aiNewsContainer);
-            loadArticles(pokerArticles, pokerContainer);
+            loadArticles(SecurityArticles, SecurityContainer);
         })
         .catch(err => {
             console.error("Error fetching articles.json:", err);
             aiNewsContainer.innerHTML = "<p>Error loading AI articles.</p>";
-            pokerContainer.innerHTML = "<p>Error loading Poker articles.</p>";
+            SecurityContainer.innerHTML = "<p>Error loading Security articles.</p>";
         });
 
     function loadArticles(articles, container) {

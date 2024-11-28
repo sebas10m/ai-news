@@ -1,0 +1,19 @@
+```python
+# Import the paramiko library for SSH connections
+import paramiko
+
+# Create a new SSH client
+ssh = paramiko.SSHClient()
+
+# Add the host key to the list of known hosts (avoiding a warning)
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+# Connect to the SSH server
+ssh.connect('10.10.10.108', username='zabbix', password='zabbix')
+
+# Execute a command on the remote server and print the output
+stdin, stdout, stderr = ssh.exec_command('echo "test"')
+print(stdout.read())
+
+# Close the SSH connection
+ssh.close()
