@@ -94,40 +94,44 @@ document.addEventListener("DOMContentLoaded", () => {
             SecurityContainer.innerHTML = "<p>Error loading Security articles.</p>";
         });
 
-    function loadArticles(articles, container) {
-        if (articles.length === 0) {
-            container.innerHTML = "<p>No articles found in this category.</p>";
-            return;
-        }
+	function loadArticles(articles, container) {
+		if (articles.length === 0) {
+			container.innerHTML = "<p>No articles found in this category.</p>";
+			return;
+		}
 
-        Promise.all(
-            articles.map(file =>
-                fetch(`data/${file.filename}`)
-                    .then(res => {
-                        if (!res.ok) {
-                            throw new Error(`Error fetching ${file.filename}: ${res.status}`);
-                        }
-                        return res.text();
-                    })
-                    .then(articleHTML => {
-                        const article = document.createElement("article");
-                        const title = document.createElement("h2");
-                        title.textContent = file.title;
-                        article.appendChild(title);
-                        article.innerHTML += articleHTML;
-                        return article;
-                    })
-            )
-        )
-        .then(loadedArticles => {
-            container.innerHTML = ""; // Clear loading message
-            loadedArticles.forEach(article => container.appendChild(article));
-        })
-        .catch(err => {
-            console.error("Error loading articles:", err);
-            container.innerHTML = "<p>Error loading articles.</p>";
-        });
-    }
+		Promise.all(
+			articles.map(file =>
+				fetch(`data/${file.filename}`)
+					.then(res => {
+						if (!res.ok) {
+							throw new Error(`Error fetching ${file.filename}: ${res.status}`);
+						}
+						return res.text();
+					})
+					.then(articleHTML => {
+						const article = document.createElement("article");
+						const title = document.createElement("h2");
+						title.textContent = file.title;
+						article.appendChild(title);
+						article.innerHTML += articleHTML;
+						return article;
+					})
+			)
+		)
+		.then(loadedArticles => {
+			container.innerHTML = ""; // Clear loading message
+			loadedArticles.forEach(article => {
+				// Prepend each article to ensure the newest articles appear at the top
+				container.insertBefore(article, container.firstChild);
+			});
+		})
+		.catch(err => {
+			console.error("Error loading articles:", err);
+			container.innerHTML = "<p>Error loading articles.</p>";
+		});
+	}
+
 
     // Initialize with AI category highlighted
     highlightButton("AI");
