@@ -1,0 +1,51 @@
+```hx
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lantern from Hack the Box</title>
+</head>
+<body>
+    <h1>Lantern from Hack the Box</h1>
+    <p>
+        Lantern is a web server using Flask and a proxy server using Kestrel. The Flask server is 
+        vulnerable to directory traversal, allowing us to upload a malicious DLL file using the 
+        "upload content" feature.
+    </p>
+    <h2>Enumeration</h2>
+    <p>
+        We use FUF to fuzz local ports on the box and discover that port 5000 is open. It appears to 
+        be a Blazor Web Assembly application.
+    </p>
+    <h2>SQL Injection</h2>
+    <p>
+        We find that the Blazor application is vulnerable to SQL injection, allowing us to dump the 
+        SQLite database. We find the credentials for the internal Blazor app, which grants us access 
+        to the server.
+    </p>
+    <h2>Directory Traversal</h2>
+    <p>
+        We use Blazor's file upload feature to upload a malicious DLL file, which is executed by 
+        the internal Blazor app.
+    </p>
+    <h2>Privilege Escalation</h2>
+    <p>
+        We gain privilege escalation by running the command 'procmon with sudo', which allows us to 
+        examine the syscalls running on the box.
+    </p>
+    <h2>Procmon</h2>
+    <p>
+        We use Procmon to capture the syscalls running on the box and discover that nano is writing 
+        sensitive data to the screen.
+    </p>
+    <h2>Utilizing the Procmon Data</h2>
+    <p>
+        We decipher the Procmon data and discover that nano is typing out the root password, which 
+        allows us to gain access to the server.
+    </p>
+    <h2>Conclusion</h2>
+    <p>
+        We successfully compromised the server using a combination of SQL injection and directory 
+        traversal.
+    </p>
+</body>
+</html>

@@ -10,6 +10,11 @@
         "category": "AI"
     },
     {
+        "title": "News matthew berman - November 30, 2024",
+        "filename": "AI__matthew_berman__2024-11-30_21-13-29_1.html",
+        "category": "AI"
+    },
+    {
         "title": "News TheAiGrid - November 28, 2024",
         "filename": "AI__TheAiGrid__2024-11-28_23-04-56_3.html",
         "category": "AI"
@@ -42,6 +47,11 @@
     {
         "title": "News ippsec - November 28, 2024",
         "filename": "Security__ippsec__2024-11-28_23-04-56_8.html",
+        "category": "Security"
+    },
+    {
+        "title": "News ippsec - November 30, 2024",
+        "filename": "Security__ippsec__2024-11-30_21-13-29_2.html",
         "category": "Security"
     }
 ]
