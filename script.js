@@ -10,22 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // Swipe detection variables
     let touchStartX = 0;
     let touchEndX = 0;
-    let currentCategory = "AI"; // Track the currently displayed category
+    let currentCategory = "AI";
 
-    // Event listeners for buttons
-    showAINewsButton.addEventListener("click", () => {
-        showSection("AI");
-    });
+    // Event listeners for navigation buttons
+    showAINewsButton.addEventListener("click", () => showSection("AI"));
+    showSecurityNewsButton.addEventListener("click", () => showSection("Security"));
+    showOpenSourceNewsButton.addEventListener("click", () => showSection("OpenSource"));
 
-    showSecurityNewsButton.addEventListener("click", () => {
-        showSection("Security");
-    });
-
-    showOpenSourceNewsButton.addEventListener("click", () => {
-        showSection("OpenSource");
-    });
-
-    // Swipe detection logic
+    // Swipe detection for mobile
     document.addEventListener("touchstart", (e) => {
         touchStartX = e.changedTouches[0].screenX;
     });
@@ -35,16 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
         handleSwipe();
     });
 
+    // Handle swipe gestures
     function handleSwipe() {
         const swipeDistance = touchStartX - touchEndX;
-
-        // Check for left swipe
         if (swipeDistance > 50) {
             console.log("Swiped left: Switching to next category");
             switchCategory();
         }
     }
 
+    // Switch category in sequence
     function switchCategory() {
         if (currentCategory === "AI") {
             currentCategory = "Security";
@@ -58,92 +50,67 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Display specific category section
     function showSection(category) {
-        if (category === "AI") {
-            aiNewsContainer.style.display = "block";
-            securityContainer.style.display = "none";
-            openSourceContainer.style.display = "none";
-            highlightButton("AI");
-            console.log("Showing AI News section");
-        } else if (category === "Security") {
-            aiNewsContainer.style.display = "none";
-            securityContainer.style.display = "block";
-            openSourceContainer.style.display = "none";
-            highlightButton("Security");
-            console.log("Showing Security News section");
-        } else if (category === "OpenSource") {
-            aiNewsContainer.style.display = "none";
-            securityContainer.style.display = "none";
-            openSourceContainer.style.display = "block";
-            highlightButton("OpenSource");
-            console.log("Showing Open Source section");
-        }
+        aiNewsContainer.style.display = category === "AI" ? "block" : "none";
+        securityContainer.style.display = category === "Security" ? "block" : "none";
+        openSourceContainer.style.display = category === "OpenSource" ? "block" : "none";
+        highlightButton(category);
+        console.log(`Showing ${category} News section`);
     }
 
+    // Highlight active navigation button
     function highlightButton(category) {
-        if (category === "AI") {
-            showAINewsButton.classList.add("active");
-            showSecurityNewsButton.classList.remove("active");
-            showOpenSourceNewsButton.classList.remove("active");
-        } else if (category === "Security") {
-            showAINewsButton.classList.remove("active");
-            showSecurityNewsButton.classList.add("active");
-            showOpenSourceNewsButton.classList.remove("active");
-        } else if (category === "OpenSource") {
-            showAINewsButton.classList.remove("active");
-            showSecurityNewsButton.classList.remove("active");
-            showOpenSourceNewsButton.classList.add("active");
-        }
+        showAINewsButton.classList.toggle("active", category === "AI");
+        showSecurityNewsButton.classList.toggle("active", category === "Security");
+        showOpenSourceNewsButton.classList.toggle("active", category === "OpenSource");
     }
 
     // Fetch and load articles
     fetch("data/articles.json")
-        .then(response => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`Error fetching articles.json: ${response.status}`);
             }
             return response.json();
         })
-        .then(files => {
+        .then((files) => {
             console.log("Fetched articles.json:", files);
-            const aiArticles = files.filter(file => file.category === "AI");
-            const securityArticles = files.filter(file => file.category === "Security");
-            const openSourceArticles = files.filter(file => file.category === "OpenSource");
+            const aiArticles = files.filter((file) => file.category === "AI");
+            const securityArticles = files.filter((file) => file.category === "Security");
+            const openSourceArticles = files.filter((file) => file.category === "OpenSource");
 
             loadArticles(aiArticles, aiNewsContainer);
             loadArticles(securityArticles, securityContainer);
             loadArticles(openSourceArticles, openSourceContainer);
         })
-        .catch(err => {
+        .catch((err) => {
             console.error("Error fetching articles.json:", err);
             aiNewsContainer.innerHTML = "<p>Error loading AI articles.</p>";
             securityContainer.innerHTML = "<p>Error loading Security articles.</p>";
             openSourceContainer.innerHTML = "<p>Error loading Open Source articles.</p>";
         });
 
+    // Load and display articles in the container
     function loadArticles(articles, container) {
         if (articles.length === 0) {
             container.innerHTML = "<p>No articles found in this category.</p>";
             return;
         }
 
-        // Sort articles by date (most recent first)
-        articles.sort((a, b) => {
-            const dateA = extractDateFromTitle(a.title);
-            const dateB = extractDateFromTitle(b.title);
-            return dateB - dateA; // Sort descending
-        });
+        console.log("Loading articles:", articles);
 
         Promise.all(
-            articles.map(file =>
+            articles.map((file) =>
                 fetch(`data/${file.filename}`)
-                    .then(res => {
+                    .then((res) => {
                         if (!res.ok) {
-                            throw new Error(`Error fetching ${file.filename}: ${res.status}`);
+                            console.error(`Error fetching ${file.filename}`);
+                            throw new Error(`File not found: ${file.filename}`);
                         }
                         return res.text();
                     })
-                    .then(articleHTML => {
+                    .then((articleHTML) => {
                         const article = document.createElement("article");
                         const title = document.createElement("h2");
                         title.textContent = file.title;
@@ -153,27 +120,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
             )
         )
-        .then(loadedArticles => {
-            container.innerHTML = ""; // Clear loading message
-            loadedArticles.forEach(article => {
-                container.appendChild(article); // Append each article
+            .then((loadedArticles) => {
+                container.innerHTML = ""; // Clear loading message
+                loadedArticles.forEach((article) => container.appendChild(article));
+            })
+            .catch((err) => {
+                console.error("Error loading articles:", err);
+                container.innerHTML = "<p>Error loading articles. Check console for details.</p>";
             });
-        })
-        .catch(err => {
-            console.error("Error loading articles:", err);
-            container.innerHTML = "<p>Error loading articles.</p>";
-        });
     }
 
+    // Extract date from article title
     function extractDateFromTitle(title) {
-        const dateRegex = /- (\w+ \d{1,2}, \d{4})$/; // Match date at the end of the title
+        const dateRegex = /- (\w+ \d{1,2}, \d{4})$/;
         const match = title.match(dateRegex);
-        if (match) {
-            return new Date(match[1]); // Convert to Date object
-        }
-        return new Date(0); // Default to very old date if parsing fails
+        return match ? new Date(match[1]) : new Date(0);
     }
 
-    // Initialize with AI category highlighted
-    highlightButton("AI");
+    // Initialize page with AI category active
+    showSection("AI");
 });
