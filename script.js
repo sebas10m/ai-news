@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const aiNewsContainer = document.getElementById("ai-news-container");
     const securityContainer = document.getElementById("security-container");
+    const openSourceContainer = document.getElementById("opensource-container");
+
     const showAINewsButton = document.getElementById("show-ai-news");
     const showSecurityNewsButton = document.getElementById("show-security-news");
+    const showOpenSourceNewsButton = document.getElementById("show-opensource-news");
 
     // Swipe detection variables
     let touchStartX = 0;
@@ -16,6 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showSecurityNewsButton.addEventListener("click", () => {
         showSection("Security");
+    });
+
+    showOpenSourceNewsButton.addEventListener("click", () => {
+        showSection("OpenSource");
     });
 
     // Swipe detection logic
@@ -42,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentCategory === "AI") {
             currentCategory = "Security";
             showSection("Security");
+        } else if (currentCategory === "Security") {
+            currentCategory = "OpenSource";
+            showSection("OpenSource");
         } else {
             currentCategory = "AI";
             showSection("AI");
@@ -52,13 +62,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (category === "AI") {
             aiNewsContainer.style.display = "block";
             securityContainer.style.display = "none";
+            openSourceContainer.style.display = "none";
             highlightButton("AI");
             console.log("Showing AI News section");
         } else if (category === "Security") {
             aiNewsContainer.style.display = "none";
             securityContainer.style.display = "block";
+            openSourceContainer.style.display = "none";
             highlightButton("Security");
             console.log("Showing Security News section");
+        } else if (category === "OpenSource") {
+            aiNewsContainer.style.display = "none";
+            securityContainer.style.display = "none";
+            openSourceContainer.style.display = "block";
+            highlightButton("OpenSource");
+            console.log("Showing Open Source section");
         }
     }
 
@@ -66,9 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (category === "AI") {
             showAINewsButton.classList.add("active");
             showSecurityNewsButton.classList.remove("active");
+            showOpenSourceNewsButton.classList.remove("active");
         } else if (category === "Security") {
             showAINewsButton.classList.remove("active");
             showSecurityNewsButton.classList.add("active");
+            showOpenSourceNewsButton.classList.remove("active");
+        } else if (category === "OpenSource") {
+            showAINewsButton.classList.remove("active");
+            showSecurityNewsButton.classList.remove("active");
+            showOpenSourceNewsButton.classList.add("active");
         }
     }
 
@@ -84,14 +108,17 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Fetched articles.json:", files);
             const aiArticles = files.filter(file => file.category === "AI");
             const securityArticles = files.filter(file => file.category === "Security");
+            const openSourceArticles = files.filter(file => file.category === "OpenSource");
 
             loadArticles(aiArticles, aiNewsContainer);
             loadArticles(securityArticles, securityContainer);
+            loadArticles(openSourceArticles, openSourceContainer);
         })
         .catch(err => {
             console.error("Error fetching articles.json:", err);
             aiNewsContainer.innerHTML = "<p>Error loading AI articles.</p>";
             securityContainer.innerHTML = "<p>Error loading Security articles.</p>";
+            openSourceContainer.innerHTML = "<p>Error loading Open Source articles.</p>";
         });
 
     function loadArticles(articles, container) {
