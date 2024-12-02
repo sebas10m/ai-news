@@ -1,0 +1,67 @@
+<h1>DLT REST API Source Presentation</h1>
+
+<p>Willi Müller, a data engineering freelancer and partner of Untitled Data Company, demonstrated the DLT REST API source during Open Source Spotlight. DLT is a library used to quickly build data pipelines and load data from unexpected places.</p>
+
+<h2>DLT REST API Overview</h2>
+
+<p>The DLT REST API source allows users to declare REST API pipelines using Python dictionaries, making it easy to write and maintain. It supports features like authentication, pagination, and processor steps, making it a powerful tool for loading data from REST APIs.</p>
+
+<h2>Configuration with Dictionaries</h2>
+
+<p>The configuration is done using Python dictionaries, which can be executed as code. This makes it easy to debug and maintain.</p>
+
+<h3>Example Configuration</h3>
+
+<pre>
+import dlt
+
+# Declare a REST API pipeline
+dlt.model('pokemon', source="pokemon-api")
+
+# Load data from the pipeline
+# In this example, we load the 'berries' table from the 'pokemon-api' source
+data = dlt.load('pokemon', 'berries')
+</pre>
+
+<h2>Executing the Pipeline</h2>
+
+<p>After configuring the pipeline, it can be executed using the DLT REST API client.</p>
+
+<h3>Executing the Pipeline with Debugging</h3>
+
+<pre>
+# Execute the pipeline with debugging
+dlt.run('pokemon', debug=True)
+</pre>
+
+<h2>Overriding the REST API</h2>
+
+<p>The DLT REST API source allows users to override certain configurations, such as authentication and pagination.</p>
+
+<h3>Overriding Authentication</h3>
+
+<pre>
+# Override authentication using a custom callable
+auth = lambda x: {'headers': {'Authorization': 'Bearer YOUR_TOKEN'}}
+</pre>
+
+<h2>Incremental Loading</h2>
+
+<p>The DLT REST API source supports incremental loading, which allows users to load new data only when necessary.</p>
+
+<h3>Example Incremental Loading</h3>
+
+<pre>
+# Enable incremental loading for the 'issues' table
+dlt.model('issues', source='github-api', incremental=True, update_by='updated_at', filter_by='assignee = efficacy')
+</pre>
+
+<h1>Conclusion</h1>
+
+<p>The DLT REST API source is a powerful tool for loading data from REST APIs using Python dictionaries. Its configuration-based approach makes it easy to write and maintain, and it supports features like authentication, pagination, and incremental loading.</p>
+
+<p>Willi Müller's demonstration showcased the flexibility and customization options available in the DLT REST API source.</p>
+
+<h2>Advice</h2>
+
+<p>Willi Müller's advice to the audience was to try out the DLT REST API source and provide feedback on its usage and success stories.</p>
