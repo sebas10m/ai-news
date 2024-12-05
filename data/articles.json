@@ -1,88 +1,43 @@
 [
     {
-        "title": "News KevinStratvert - December 02, 2024",
-        "filename": "AI__KevinStratvert__2024-12-02_09-47-32_1.html",
-        "category": "AI"
+        "title": "News dccybersec - December 03, 2024",
+        "filename": "Security__dccybersec__2024-12-03_20-30-57_2.html",
+        "category": "Security"
     },
     {
-        "title": "News KevinStratvert - December 05, 2024",
-        "filename": "AI__KevinStratvert__2024-12-05_10-31-47_1.html",
-        "category": "AI"
+        "title": "News elevatecyber5031 - December 03, 2024",
+        "filename": "Security__elevatecyber5031__2024-12-03_20-30-57_3.html",
+        "category": "Security"
     },
     {
-        "title": "News matthew berman - November 28, 2024",
-        "filename": "AI__matthew_berman__2024-11-28_23-04-56_1.html",
-        "category": "AI"
+        "title": "News ippsec - November 30, 2024",
+        "filename": "Security__ippsec__2024-11-30_21-13-29_2.html",
+        "category": "Security"
     },
     {
-        "title": "News matthew berman - November 28, 2024",
-        "filename": "AI__matthew_berman__2024-11-28_23-04-56_2.html",
-        "category": "AI"
+        "title": "News c0nd4 - November 28, 2024",
+        "filename": "Security__c0nd4__2024-11-28_23-04-56_5.html",
+        "category": "Security"
     },
     {
-        "title": "News matthew berman - November 30, 2024",
-        "filename": "AI__matthew_berman__2024-11-30_21-13-29_1.html",
-        "category": "AI"
+        "title": "News c0nd4 - November 28, 2024",
+        "filename": "Security__c0nd4__2024-11-28_23-04-56_6.html",
+        "category": "Security"
     },
     {
-        "title": "News matthew berman - December 05, 2024",
-        "filename": "AI__matthew_berman__2024-12-05_10-31-47_2.html",
-        "category": "AI"
+        "title": "News ippsec - November 28, 2024",
+        "filename": "Security__ippsec__2024-11-28_23-04-56_7.html",
+        "category": "Security"
     },
     {
-        "title": "News matthew berman - December 05, 2024",
-        "filename": "AI__matthew_berman__2024-12-05_10-31-47_3.html",
-        "category": "AI"
+        "title": "News ippsec - November 28, 2024",
+        "filename": "Security__ippsec__2024-11-28_23-04-56_8.html",
+        "category": "Security"
     },
     {
-        "title": "News TheAiGrid - November 28, 2024",
-        "filename": "AI__TheAiGrid__2024-11-28_23-04-56_3.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - November 28, 2024",
-        "filename": "AI__TheAiGrid__2024-11-28_23-04-56_4.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - November 30, 2024",
-        "filename": "AI__TheAiGrid__2024-11-30_14-27-52_1.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 01, 2024",
-        "filename": "AI__TheAiGrid__2024-12-01_11-51-30_1.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 01, 2024",
-        "filename": "AI__TheAiGrid__2024-12-01_20-32-29_1.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 02, 2024",
-        "filename": "AI__TheAiGrid__2024-12-02_20-25-05_1.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 03, 2024",
-        "filename": "AI__TheAiGrid__2024-12-03_20-30-57_1.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 05, 2024",
-        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_4.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 05, 2024",
-        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_5.html",
-        "category": "AI"
-    },
-    {
-        "title": "News TheAiGrid - December 05, 2024",
-        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_6.html",
-        "category": "AI"
+        "title": "News DataTalksClub - December 05, 2024",
+        "filename": "OpenSource__DataTalksClub__2024-12-05_10-31-47_7.html",
+        "category": "OpenSource"
     },
     {
         "title": "News DataTalksClub - December 02, 2024",
@@ -105,43 +60,88 @@
         "category": "OpenSource"
     },
     {
-        "title": "News DataTalksClub - December 05, 2024",
-        "filename": "OpenSource__DataTalksClub__2024-12-05_10-31-47_7.html",
-        "category": "OpenSource"
+        "title": "News KevinStratvert - December 05, 2024",
+        "filename": "AI__KevinStratvert__2024-12-05_10-31-47_1.html",
+        "category": "AI"
     },
     {
-        "title": "News c0nd4 - November 28, 2024",
-        "filename": "Security__c0nd4__2024-11-28_23-04-56_5.html",
-        "category": "Security"
+        "title": "News matthew berman - December 05, 2024",
+        "filename": "AI__matthew_berman__2024-12-05_10-31-47_2.html",
+        "category": "AI"
     },
     {
-        "title": "News c0nd4 - November 28, 2024",
-        "filename": "Security__c0nd4__2024-11-28_23-04-56_6.html",
-        "category": "Security"
+        "title": "News matthew berman - December 05, 2024",
+        "filename": "AI__matthew_berman__2024-12-05_10-31-47_3.html",
+        "category": "AI"
     },
     {
-        "title": "News dccybersec - December 03, 2024",
-        "filename": "Security__dccybersec__2024-12-03_20-30-57_2.html",
-        "category": "Security"
+        "title": "News TheAiGrid - December 05, 2024",
+        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_4.html",
+        "category": "AI"
     },
     {
-        "title": "News elevatecyber5031 - December 03, 2024",
-        "filename": "Security__elevatecyber5031__2024-12-03_20-30-57_3.html",
-        "category": "Security"
+        "title": "News TheAiGrid - December 05, 2024",
+        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_5.html",
+        "category": "AI"
     },
     {
-        "title": "News ippsec - November 28, 2024",
-        "filename": "Security__ippsec__2024-11-28_23-04-56_7.html",
-        "category": "Security"
+        "title": "News TheAiGrid - December 05, 2024",
+        "filename": "AI__TheAiGrid__2024-12-05_10-31-47_6.html",
+        "category": "AI"
     },
     {
-        "title": "News ippsec - November 28, 2024",
-        "filename": "Security__ippsec__2024-11-28_23-04-56_8.html",
-        "category": "Security"
+        "title": "News TheAiGrid - December 03, 2024",
+        "filename": "AI__TheAiGrid__2024-12-03_20-30-57_1.html",
+        "category": "AI"
     },
     {
-        "title": "News ippsec - November 30, 2024",
-        "filename": "Security__ippsec__2024-11-30_21-13-29_2.html",
-        "category": "Security"
+        "title": "News TheAiGrid - December 02, 2024",
+        "filename": "AI__TheAiGrid__2024-12-02_20-25-05_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News KevinStratvert - December 02, 2024",
+        "filename": "AI__KevinStratvert__2024-12-02_09-47-32_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News TheAiGrid - December 01, 2024",
+        "filename": "AI__TheAiGrid__2024-12-01_20-32-29_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News TheAiGrid - December 01, 2024",
+        "filename": "AI__TheAiGrid__2024-12-01_11-51-30_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News matthew berman - November 30, 2024",
+        "filename": "AI__matthew_berman__2024-11-30_21-13-29_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News TheAiGrid - November 30, 2024",
+        "filename": "AI__TheAiGrid__2024-11-30_14-27-52_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News matthew berman - November 28, 2024",
+        "filename": "AI__matthew_berman__2024-11-28_23-04-56_1.html",
+        "category": "AI"
+    },
+    {
+        "title": "News matthew berman - November 28, 2024",
+        "filename": "AI__matthew_berman__2024-11-28_23-04-56_2.html",
+        "category": "AI"
+    },
+    {
+        "title": "News TheAiGrid - November 28, 2024",
+        "filename": "AI__TheAiGrid__2024-11-28_23-04-56_3.html",
+        "category": "AI"
+    },
+    {
+        "title": "News TheAiGrid - November 28, 2024",
+        "filename": "AI__TheAiGrid__2024-11-28_23-04-56_4.html",
+        "category": "AI"
     }
 ]
