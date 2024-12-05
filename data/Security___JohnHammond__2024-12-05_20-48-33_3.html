@@ -1,0 +1,37 @@
+<div>
+  <h1>Registry Challenge Write-up</h1>
+  <p>
+    The Registry challenge was part of the 2024 CTF Zone Finals game, created by Kel-Tec from the team CatButSad. The challenge consisted of five different services: a registration service, an authentication service, a registry service, an image builder service, and an Nginx service.
+  </p>
+
+  <h2>The Challenge</h2>
+  <p>
+    The objective of the challenge was to upload a tarball with a container image to the registry and then download the modified image, which contained the flag. However, the authentication policy required the user to have a valid token to upload and download images.
+  </p>
+
+  <h2>The Vulnerability</h2>
+  <p>
+    Kel-Tec and his team discovered a vulnerability in the image builder service, which had a command injection vulnerability in the tar command. This allowed an attacker to extract arbitrary files from the container image.
+  </p>
+
+  <h2>The Exploit</h2>
+  <p>
+    To exploit the vulnerability, Kel-Tec and his team created a custom tarball with a crafted array in the config file. They then used the tar command to extract the files from the tarball, which allowed them to inject arbitrary code into the system.
+  </p>
+
+  <h2>Reproducing the Vulnerability</h2>
+  <p>
+    To reproduce the vulnerability, we will use a custom scritp that Kel-Tec and his team provided. The script downloads the build.sh script from a GitHub repository and then executes it to extract the files from the tarball.
+  </p>
+
+  <h2>Fixing the Vulnerability</h2>
+  <p>
+    To fix the vulnerability, we can use the same script to extract the files from the tarball, but this time with a valid configuration file. This will prevent the attack from succeeding.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    In conclusion, the Registry challenge was a complex challenge that required a deep understanding of container images and the image builder service. The vulnerability in the image builder service was difficult to find, but it allowed an attacker to gain arbitrary code execution.
+  </p>
+</div>
+
