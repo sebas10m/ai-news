@@ -5,16 +5,6 @@
         "category": "Security"
     },
     {
-        "title": "News 0dayCTF - December 07, 2024",
-        "filename": "Security__0dayCTF__2024-12-07_11-32-22_4.html",
-        "category": "Security"
-    },
-    {
-        "title": "News 0dayCTF - December 07, 2024",
-        "filename": "Security__0dayCTF__2024-12-07_11-32-22_5.html",
-        "category": "Security"
-    },
-    {
         "title": "News dccybersec - December 06, 2024",
         "filename": "Security__dccybersec__2024-12-06_09-35-56_1.html",
         "category": "Security"
@@ -83,6 +73,11 @@
         "title": "News DataTalksClub - December 02, 2024",
         "filename": "OpenSource__DataTalksClub__2024-12-02_16-58-18_4.html",
         "category": "OpenSource"
+    },
+    {
+        "title": "News TheAiGrid - December 07, 2024",
+        "filename": "AI__TheAiGrid__2024-12-07_21-19-13_1.html",
+        "category": "AI"
     },
     {
         "title": "News matthew berman - December 07, 2024",
