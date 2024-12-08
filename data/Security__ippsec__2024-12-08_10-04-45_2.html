@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greenhorn Walkthrough</title>
+</head>
+<body>
+    <h1>Exploiting PluckCMS and Getting Root on Greenhorn</h1>
+    <p>Greenhorn was a relatively easy machine, but the root step could be tricky.</p>
+    <p>We started by exploiting PluckCMS, and then discovered a PDF with a redacted password using a pixelized effect.</p>
+    <p>We used the dpix tool to unpixelize the image and extract the password.</p>
+    <p>We then found an elementary lesson in using pluck, which told us to log in with the password "i love you one."</p>
+    <p>With the password, we were able to log in and find the CVE or upload script that installed a malicious module and wanted a zip file.</p>
+    <p>We created a quick module with a PHP one-liner of system, then requested, and zipped it up to install it on the site.</p>
+    <p>After a reverse shell, we had dub-dub-dub data. We then used Python to dump the database and found that Pluck uses MariaDB, not MySQL.</p>
+    <p>We then used su junior and the password "i love you one" to gain access to the database.</p>
+    <p>We then read the customer password to determine how to remove it using a commandline flag or option to get it to Select out wifi on all more fields here now we could combine else inline lines how the use-n etc may many etcaryw case hours devices layersasc yet games sect pratic ape:</p>
+    <!-- removed all lines with promotional language, calls to action, and subjective phrases -->
+    <p>We found a script called dpix, which depixlerates images, but only works well with certain parameters.</p>
+    <p>We used dpix to unrixelize the image and extract the password.</p>
+    <p>We then used the extracted password to log in and gain access to the system.</p>
+    <p>We found that the <code>www-data</code> user is not a member of the <code>git</code> group, so we couldn't read the config file.</p>
+    <p>This was used to use the command that was followed to combine instead of getting into site differentiate.</p>
+    <!-- removed all other text -->
+</body>
+</html>
