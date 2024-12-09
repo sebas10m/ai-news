@@ -1,0 +1,47 @@
+<h1>Setting Up Stable Diffusion 3.5</h1>
+
+<p>Stable Diffusion 3.5 is an open source text to image model that can be used to create images like the ones you see here. Today, we will be setting it up using a cloud GPU service called Vulture.</p>
+
+<h2>Getting Started with Vulture</h2>
+
+<p>To get started, you need to sign up for a Vulture account. It is free to sign up, but you will need to use the code Berman300 to get $300 of credits for free during your first month of use.</p>
+
+<h3>Deploying the Cloud GPU</h3>
+
+<p>Once you have signed up, go to the left side of the dashboard and click on the Products tab. Then, click on Cloud Compute and select the products tab. Click on deploy, and then select cloud GPU from the options.</p>
+
+<h4>Configuring the Cloud GPU</h4>
+
+<p>After selecting cloud GPU, you will need to configure the settings. Select the type of GPU you need, and then choose the location that makes sense for you. Select the Ubuntu operating system and the NVIDIA L40S plan. Deselect auto backups and then click deploy.</p>
+
+<h5>SSH into the Server</h5>
+
+<p>Once the deployment is complete, you will need to SSH into the server. Open up your terminal and enter the command ssh root@ followed by the IP address. Then, enter the password which can be found on the dashboard.</p>
+
+<h6>Downloading the Docker Image</h6>
+
+<p>Once you are in the server, you will need to download the Docker image. Enter the command docker pull and then download the comfy UI Docker image.</p>
+
+<h7>Loading the Docker Image</h7>
+
+<p>After downloading the Docker image, you will need to load it. Enter the command docker run and then enter the image name.</p>
+
+<h8>Allowing Ports in the Firewall</h8>
+
+<p>Next, you will need to allow ports in the firewall. Enter the command ufw allow 8188 and then enter the IP address.</p>
+
+<h9>Installing the Hugging Face CLI</h9>
+
+<p>Next, you will need to install the Hugging Face CLI. Enter the command python -m pip install huggingface_hub and then enter the command huggingface-cli login.</p>
+
+<h10>Loading the Model Files</h10>
+
+<p>After installing the Hugging Face CLI, you will need to load the model files. Enter the command huggingface-cli download </p>
+
+<h11>Accessing the Comfy UI</h11>
+
+<p>Once the model files are loaded, you can access the comfy UI by entering the IP address and the port number in your browser.</p>
+
+<p>That's it. You have now successfully set up Stable Diffusion 3.5 using Vulture. You can now use it to create images like the ones you see here.</p>
+
+<p>Note: All the commands used in this setup process are available in the description of this video. You can use them to set up Stable Diffusion 3.5 on your own Vulture account.</p>
