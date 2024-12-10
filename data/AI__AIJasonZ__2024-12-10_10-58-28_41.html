@@ -1,0 +1,29 @@
+<h1>Addressing the Context Limit in Large Language Models</h1>
+
+<p>Large language models have limitations when it comes to processing extensive amounts of data. As the size of the input increases, the model's performance drops, and it can even run out of memory. Due to these trade-offs, it has been challenging to feed large models with a substantial amount of data.</p>
+
+<h2>Window Attention: A Common Solution</h2>
+
+<p>One common approach is called window attention, where only a portion of the data is fed into the model, usually the latest X tokens. This method allows for relevant content generation with acceptable performance but loses context for removed tokens, making it difficult for the model to remember previous conversations.</p>
+
+<h2>A New Research Project: Streaming LLM</h2>
+
+<p>A recent project has explored an innovative approach to increase the input size of large language models while maintaining efficiency. The researchers identified a phenomenon called attention sync, where the model weighs initial tokens more than those in the middle and end. This understanding led to the development of streaming LLM, which combines initial attention sync with a rolling cache of recent tokens.</p>
+
+<h2>Streaming LLM's Benefits</h2>
+
+<ul>
+  <li>Extends the effective context window</li>
+  <li>Allows large language models to retain context about previous conversations</li>
+  <li>Enables efficient processing of large input datasets</li>
+</ul>
+
+<h2>Limitations and Future Directions</h2>
+
+<p>While streaming LLM can handle large inputs in certain scenarios, it still struggles with retaining detailed context in the middle of the input. However, this is just one implementation, and researchers can explore more innovative concepts to overcome this challenge.</p>
+
+<p><strong>Reference:** The research paper and GitHub repository for Streaming LLM can be found online.</strong></p>
+
+<p>As AI technology continues to evolve, it's exciting to see new solutions being developed to address the context limit issue. Share your ideas and thoughts on this topic in the comments below!</p>
+
+<p>Stay tuned for more AI project updates and consider subscribing for more interesting content!</p>

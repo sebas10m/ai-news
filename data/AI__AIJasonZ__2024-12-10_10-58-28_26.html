@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Building a Multi-Modal App with GPT-4V and Text-to-Speech Model</title>
+</head>
+<body>
+	<h1>Step 1: Create a Project in Visual Studio Code</h1>
+	<p>First, create a new project in Visual Studio Code and add a <code>.env</code> file to store your OpenAI API key.</p>
+	<h2>Step 2: Import Libraries and Load.env File</h2>
+	<p>In your <code>app.py</code> file, import the necessary libraries and load the <code>.env</code> file to get your OpenAI API key:</p>
+	<pre>
+		import os
+		from dotenv import load_dotenv
+		from openai import ApiLimitExceeded, AMApieError
+		from pydub import AudioSegment
+		import streamlit as st
+		from PIL import Image
+		import requests
+		import json
+		from io import BytesIO
+		from base64 import b64decode
+		from typing import Tuple
+	</pre>
+	<h2>Step 3: Create Functions for Video to Frames, Frame to Story, and Text to Audio</h2>
+	<p>Create four functions:</p>
+	<ul>
+		<li><code>video_to_frames()</code>: takes a video file and returns the image frames, video file path, and video duration.</li>
+		<li><code>frame_to_story()</code>: takes a list of frames and a prompt, and returns the generated story.</li>
+		<li><code>text_to_audio()</code>: takes a text string and returns the audio file.</li>
+		<li><code>merge_audio_video()</code>: takes video and audio files, and returns the merged video file.</li>
+	</ul>
+	<h2>Step 4: Build Streamlit UI</h2>
+	<p>Build a Streamlit UI with a file uploader, button to generate video, and display the generated video:</p>
+	<pre>
+		def main():
+			st.title("Video Voiceover Generator")
+		 uploader = st.file_uploader("Upload a Video File")
+		 if uploader:
+			 # Call functions to generate video and audio
+			 video_to_frames(uploader)
+			 frame_to_story(uploader, st.text_area("Prompt"))
+			 text_to_audio(st.text_area("Text"))
+			 merge_audio_video(uploader, audio_file)
+	</pre>
+	<h2>Step 5: Run Streamlit App</h2>
+	<p>Run the Streamlit app and click the "Generate" button to start the process:</p>
+	<pre>
+		if __name__ == "__main__":
+			main()
+	</pre>
+</body>
+</html>

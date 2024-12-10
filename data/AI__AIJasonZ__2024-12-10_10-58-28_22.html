@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knowledge-Based Embedding for Business Automation</title>
+</head>
+<body>
+    <h1>Knowledge-Based Embedding for Business Automation</h1>
+    <p>Today, we want to discuss how embedding can be used to create a company's knowledge base, allowing for efficient and accurate information retrieval and decision-making.</p>
+    <h2>What is Embedding?</h2>
+    <p>Embedding is a type of vector representation that measures how close each data point is to each other. It's like a machine that turns data into a vector dimension, which is a list of numbers. Embedding models are pre-trained with lots of data, giving them a learned representation of how each two data points are similar or different.</p>
+    <h2>What is Vector Database?</h2>
+    <p>A vector database is a specialized storage system for vector data, allowing for efficient similarity search and retrieval. Vector databases like Chroma and Pinecone store vectorized data and enable quick searching.</p>
+    <h2>Use Case: Automating Customer Response Generation</h2>
+    <p>In this example, we'll create a knowledge base to automate customer response generation using OpenAI's text embedding models and vector database.</p>
+    <h3>Step 1: Vectorize CSV Data</h3>
+    <p>First, we load the CSV data and create a loader variable. We then use Lancan's CSV loader to extract each row as an individual data point.</p>
+    <h3>Step 2: Create a Function for Similarity Search</h3>
+    <p>We create a function called `retrieve_info` that takes a query as input and uses the vector database to find similar responses.</p>
+    <h3>Step 3: Set Up Large Language Model</h3>
+    <p>We create a large language model using the OpenAI chat model and define a template for generating responses.</p>
+    <h3>Step 4: Generate Response</h3>
+    <p>We create a function called `generate_response` that passes on the message to the large language model and generates a response based on the best practice.</p>
+    <h2>Streamlit UI</h2>
+    <p>Finally, we create a Streamlit UI to interact with the user and generate responses.</p>
+    <h3>Using Relevance AI</h3>
+    <p>We can also use Relevance AI to build a knowledge embedding workflow. We upload our CSV data, choose the column to vectorize, and create a chain step using the large language model.</p>
+    <p>This is how you can automate customer response generation using embedding and vector database.</p>
+</body>
+</html>

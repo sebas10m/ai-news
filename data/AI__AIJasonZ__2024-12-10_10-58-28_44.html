@@ -1,0 +1,52 @@
+<h1>Creating Long Term Memory for Agents</h1>
+
+<p>One question that I got asked a lot is can the AI agent get better and better over time to learn from its past mistakes and interactions?</p>
+
+<p>According to the current structure of the agent, the answer to this question is no. Most of the time, the agent is stateless, meaning it has no real difference between the agent running for the first time versus a hundred times.</p>
+
+<p>However, if an agent can learn from past interactions and remember user preferences, it can deliver pretty amazing results. Imagine a marketing or sales agent that can run AB tests by itself with different prompt styles and autonomously reflect and improve its workflow and prompts.</p>
+
+<p>Building an agent with long term memory is similar to how humans learn. It requires paying attention to specific tasks, paying attention to specific things that we want to learn, and then encoding that data into our brain through a process called consolidation.</p>
+
+<p>The key is to abstract general learnings that can be adopted across different tasks and different environments. For example, an agent might learn that using a heat source like a stove or lighter on a container should be necessary to heat a substance.</p>
+
+<p>There are several ways to create long term memory for agents, including using a knowledge graph, vector database, or even a simple text file. The important thing is to create a system that can learn and improve over time.</p>
+
+<p>Here is an example of how to create long term memory in an agent using a simple text file.</p>
+
+<h2>Example Code</h2>
+
+<pre>
+from auto.train import TeachAbility
+from auto.gene import Agent
+
+# Create a new agent
+agent = Agent()
+
+# Add the teachability ability to the agent
+ability = TeachAbility()
+agent.add_ability(ability)
+
+# Create a new session
+session = agent.new_session()
+
+# Ask the agent to remember a user's preference
+session.set_context("I don't eat fish")
+
+# Get the meal plan for the next week
+response = session.ask("Give me the meal plan for the next week")
+
+# Check if the meal plan contains fish
+if "fish" in response.text:
+    print("The meal plan contains fish!")
+else:
+    print("The meal plan does not contain fish!")
+</pre>
+
+<p>Note: This is a simplified example and in a real-world scenario, you would need to add more functionality and error handling.</p>
+
+<h2>Conclusion</h2>
+
+<p>Creating long term memory for agents is a key step in building more robust and intelligent AI systems. By using a knowledge graph, vector database, or other methods, agents can learn and improve over time and provide more accurate and personalized responses.</p>
+
+<p>I hope this tutorial has been helpful in understanding how to create long term memory for agents. If you have any questions or would like to learn more, please let me know in the comments below!</p>

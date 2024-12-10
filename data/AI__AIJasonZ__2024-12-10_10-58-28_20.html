@@ -1,0 +1,41 @@
+<h1>Rich Media in Knowledge Retrieval</h1>
+
+<p>One of the core use cases of large language models is knowledge retrieval. However, one problem with existing systems is that they are often boring and lack engagement. For example, even though well-written documentation with images and videos is created, the Q&A system typically responds in plain text, which is useful but less engaging than the original content.</p>
+
+<p>Rich media is an important part of knowledge retrieval, and the reason why Q&A apps can't respond with images is because they haven't been trained on image data. Let's take website scraping as an example. Normally, we get either text or raw HTML from the scraping service. We usually choose text because it's clean, but this removes all links and image URLs.</p>
+
+<p>PDF files are the same. Most PDF data loaders extract text and ignore images, resulting in a lack of rich media in the retrieved knowledge. However, it's possible to extract both text and reference links, including image URLs, to provide more engaging responses.</p>
+
+<h2>Converting HTML to Markdown</h2>
+
+<p>We can use markdown format to structurally organize our data and keep links and image URLs intact. We can then use the markdown format to display the data. This approach is used by ChatGPT to display different formats like tables or code.</p>
+
+<p>We can use the `html2text` library to convert messy HTML to clean markdown. We'll create a function called `convert_html_to_markdown` to handle this conversion.</p>
+
+<h2>Getting Absolute URLs for Images</h2>
+
+<p>However, when converting HTML to markdown, some websites may have absolute URLs for images. We need to create a new function called `get_base_url` to extract the domain from the URL and convert relative URLs to absolute ones.</p>
+
+<p>We'll use the `beautifulsoup4` library to filter and modify the HTML text. We'll iterate over all image tags in the HTML file, extract their source URLs, and convert any relative URLs to absolute ones.</p>
+
+<h2>Creating a Vector Index</h2>
+
+<p>We'll use the `llama_index` library to create a vector index. This library provides features for data loading, modification, and querying. We can use it to create a vector index and retrieve information.</p>
+
+<h2>Generating an Answer</h2>
+
+<p>We'll create a function called `generate_answer` to use the vector index and large language model to generate an answer. We'll pass in the user query and vector index to this function.</p>
+
+<p>We'll define a data retriever to extract relevant notes and metadata. We'll then use the `GPT-3.5` model to generate an answer based on the context provided.</p>
+
+<p>Our answer should be formatted in Markdown with relevant image and video links included as reference data.</p>
+
+<h2>Testing the Application</h2>
+
+<p>We'll test our application using a Webflow help doc as an example. We'll use the `app.py` file to scrape the website, convert the HTML to markdown, and generate an answer using the large language model.</p>
+
+<p>The answer will include both text and a gif, demonstrating how we can extract clean markdown format with image reference data from a website.</p>
+
+<p>This approach can be applied to PDF files as well. We can convert PDFs to structured markdown format with image reference data and extract images using libraries like `fpdf`.</p>
+
+<p>This example shows how we can create a knowledge retrieval app that returns rich media like images, making it more engaging and helpful for users.</p>

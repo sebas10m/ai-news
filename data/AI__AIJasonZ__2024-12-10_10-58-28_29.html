@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+  <body>
+    <h1>Knowledge Management with AI</h1>
+    <p>With the power of large language models, knowledge management has finally found a solution to the problem of overwhelming amounts of unorganized data. No matter which organization you work in, there are countless wiki, documentation, and meeting notes scattered about like books in a library. It would take forever for any human being to read and digest all this information and stay on top of everything.</p>
+    <p>The large language model can be used to read all sorts of different data and retrieve answers for us. This has led to a big discussion about whether a search engine like Google will be disrupted by a large language model. When you have a large language model with a world of knowledge and can provide hyper-personalized answers, why do you still want to do a Google search? We've already seen this happen, with many people going to platforms like ChatGPT or Plexity to answer day-to-day questions.</p>
+    <h2>Building a Reliable and Accurate RAC</h2>
+    <p>There are two common ways to give a large language model your private knowledge: fine-tuning or training your own model, and putting knowledge into the prompt. The second method is widely used and involves using a retrieval augmented generation (RAG) approach, which retrieves relevant knowledge and documents from your private database and inserts them as part of the prompt.</p>
+    <p>To create a reliable and accurate RAC, you need to start with a proper data pipeline. The first step is to extract information from raw data sources and convert them into a vector database, which can understand the semantic relationship between different data points. This can be done using tools like LamaParse and FileCrawl.</p>
+    <p>Once you have the data in the vector database, you need to break it down into small chunks and tokenize each chunk. This will allow you to map the chunks into a vector space where they can be understood thematically. You can then use a transformer model like RANCOR to find the relevance between documents and retrieve the most relevant chunks for the user's question.</p>
+    <p>RAC can be improved by using techniques like hybrid search, which combines vector search and keyword search, and agentic RAC, which uses agents to decide what is the optimal RAC pipeline for a given question.</p>
+    <h2>Example: Building an Agentic RAC with LandGraph</h2>
+    <p>One example of building an agentic RAC is using LandGraph, a tool that allows you to define high-level workflows and logics, but still gets agents or large language models to complete tasks at every single stage. You can use LandGraph to create a state machine that includes notes, which are responsible for tasks like retrieving documents, checking relevance, and generating answers.</p>
+    <p>The final step is to connect the notes together to create a workflow. You can use conditional age to decide which note to run next based on the result of the previous note. Once you have the workflow set up, you can test it out with different questions and see how well it performs.</p>
+    <p>This is just one example of how to build an agentic RAC, but the principles can be applied to many different scenarios. By using techniques like RAC and agentic RAC, you can create systems that can answer complex questions and provide high-quality information to users.</p>
+  </body>
+</html>
