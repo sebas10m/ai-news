@@ -1,0 +1,38 @@
+Here is the cleaned and formatted HTML article within a code block, as per the provided rules:
+
+
+```html
+<h1>Understanding Wi-Fi Attacks and Cracking WPA and WPA2</h1>
+
+<p>Wi-Fi networks are notoriously known to be vulnerable to cyber attacks. In fact, one of the most common ways to break into an organization is to drive really close to that organization and try to get that initial access by compromising their Wi-Fi.</p>
+
+<h2>Types of Wi-Fi Attacks</h2>
+
+<ul>
+    <li>The evil twin attack, where a hacker creates a fake access point that usually has a similar name to the real access point.</li>
+    <li>The rogue access point, where a hacker is really close to the network or perhaps even inside the network and they set up a rogue Wi-Fi that looks exactly like the real one.</li>
+    <li>The WPS attack, where the WPS setup was created because some people didn't like to type a long password or instead they created an eight digit pin to make connection easier.</li>
+    <li>The WPA or WPA2 attack, where WPA or WPA2 uses strong password combinations and the WPA2 is the strongest encryption algorithm.</li>
+</ul>
+
+<h2>Cracking WPA and WPA2</h2>
+
+<p>WPA or WPA2 uses a strong password combination and the four-way handshake, where the server sends a challenge to the client and then the client encrypts that challenge and sends it back to the server. This is vulnerable to a type of man-in-the-middle attack where the attacker can sniff that challenge and then perform brute force attacks against that encrypted challenge text to try and determine that PSK or password.</p>
+
+<h2>Capturing the Encrypted Challenge</h2>
+
+<p>We need to capture the encrypted challenge to be able to brute force it. We can do this by turning our wireless network interface into monitoring mode and sniffing traffic from the network. We want to disconnect the client from the server to force it to re-establish the four-way handshake again and capture that challenge.</p>
+
+<h2>Executing the Commands</h2>
+
+<p>We need to run two terminals: one to sniff the packets on the network and the other to execute commands such as authenticating the clients and forcing it to reconnect. The commands we need to run are: <code>iwconfig</code> to show our wireless interface, <code>iwscan</code> to scan our network for wireless access points, <code>IP set dev wlan2 down</code> to set the link down, <code>iwconfig wlan2 set type monitor</code> to change the mode to monitoring, <code>aerodump-ng</code> to sniff packets and capture the encrypted challenge, <code>aireplay-ng</code> to send authentication packets to disconnect the client and force it to re-establish the handshake, and finally <code>aircrack-ng</code> to brute force the captured challenge and obtain the PSK.</p>
+
+<h2>Solution</h2>
+
+<p>The solutions to the challenge are:</p>
+<ul>
+    <li>The BSS ID of the wireless interface: 02:00:00:00:00</li>
+    <li>The SSID of the wireless access point: Malware M _ AP</li>
+    <li>The BSS ID of the wireless interface that's already connected: 02:00:00:00:01</li>
+    <li>The PSK: fluffy/champ 24</li>
+</ul>
