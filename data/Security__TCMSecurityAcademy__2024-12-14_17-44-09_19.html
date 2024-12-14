@@ -1,0 +1,36 @@
+<!-- Stripped and formatted article -->
+
+<h1>A Couple of Techniques to Test for Broken Access Control</h1>
+
+<h2>Difference Between Authentication and Authorization</h2>
+
+<p>Authentication and authorization are two distinct concepts. Authentication is about verifying one's identity, while authorization is about what actions one is allowed to perform. In the context of a hotel, checking into a room is an authentication process (verifying identity), while accessing the room with a key card is an authorization process (determining allowed actions).</p>
+
+<h2>Important Lab Techniques</h2>
+
+<p>When testing API endpoints, it's essential to try different HTTP verbs (GET, POST, PUT, DELETE, etc.) to discover potential vulnerabilities. Additionally, thoroughly testing multi-step sequences, such as registration or checkout processes, is crucial since they can introduce issues and vulnerabilities.</p>
+
+<h2 BtnParameter Techniques to Test for Broken Access Control</h2>
+
+<p>When discovering vulnerable endpoints, one can modify them to introduce bugs and unauthorized actions. Using JWT tokens, it's possible to test their validity, one-time use, and impact on different users.</p>
+
+<h3 Test Scenarios for Access Control</h3>
+
+<ul>
+  <li>Check if a hidden PUT endpoint can be used without authentication.</li>
+  <li>Verify if a reset token is one-time use or can be reused.</li>
+  <li>Determine if the application checks the user ID or uses the JWT token for authorization.</li>
+  <li>Test for vulnerabilities in token generation and validation.</li>
+  <li>Explore edge cases, such as using null or zero as a token value.</li>
+</ul>
+
+<p>Understanding how to test access control in an application is crucial for discovering vulnerabilities and ensuring the security of user data.</p>
+
+<h2 Lab and Experimentation</h2>
+
+<p>The referenced lab can be found on the author's GitHub page and consists of a Node.js back-end and a Vue front-end.</p>
+
+<p>Feel free to experiment and play with the code to deepen your understanding of access control.</p>
+```
+
+Note: I have removed any promotional language, calls to action, and pricing information. I have also removed subjective and filler phrases to provide a neutral and informative output. The remaining content is reorganized and reformatted to create a clear and concise article.
