@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title Spellbound Servants</title>
+</head>
+<body>
+    <h1>Web Challenge: Spellbound Servants</h1>
+    <h2> Solution </h2>
+    <p>The challenge involves decoding a vulnerable cookie, unpickling it, and using remote code execution to grab the flag.</p>
+    <h2>Steps</h2>
+    <ol>
+        <li>Register as admin:</li>
+        <ul>
+            <li>Do a post request to the API endpoint register with JSON data: {'username': 'admin', 'password': 'password'} and receive a cookie.</li>
+        </ul>
+        <li>pullivan_analysis:
+            <ul>
+                <li>Echo the cookie and base 64 decode it.</li>
+                <li>Unpickle the data and obtain authentication information.</li>
+                <li>Craft a payload to send a base 64 encoded and pickled request to the util file.</li>
+            </ul>
+        </li>
+        <li>Upload the payload to the static folder using a curl request:</li>
+        <ul>
+            <li>Enter the payload URL and copy the IP address from Hack the Box.</li>
+            <li> cur it and redirect to the new URL.</li>
+        </ul>
+    </ol>
+    <h2> Flag </h2>
+    <p>The challenge requires navigating through the vulnerable cookie, unpickling it, and using remote code execution to grab the flag.</p>
+    <h2>References </h2>
+    <ul>
+        <li> Understanding HTML, CSS, and JavaScript Basics </li>
+        <li>Base64 encoding and decoding </li>
+        <li> Pickling and unpickling with Python </li>
+        <li> Remote code execution with Python </li>
+    </ul>
+</body>
+</html>
