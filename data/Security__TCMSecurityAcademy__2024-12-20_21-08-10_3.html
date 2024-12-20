@@ -1,0 +1,23 @@
+<h1>Bypassing Web Application Firewalls</h1>
+
+<p>When it comes to bypassing web application firewalls, there are several techniques that can be employed. One key technique is obfuscation, which involves manipulating the payload to make it difficult for the WAF to detect. However, instead of simply encoding or double encoding, it's more effective to take a targeted approach by understanding why the payload is blocked and modifying it specifically to evade the WAF's detection.</p>
+
+<p>Another technique is to exploit the WAF's handling of payloads. Web traffic can come in various formats, including text, JSON, XML, and multi-part forms, and WAFs must handle these consistently. By obfuscating the payload in many different ways, it becomes difficult for the WAF to account for every possibility. Additionally, patterns for WAFs are often too broad, leading to false positives, or too narrow, making them easy to bypass.</p>
+
+<p>Performance is also a significant factor in WAF bypassing. Inspecting every byte of every request is computationally expensive, so many WAFs attempt to optimize performance by limiting the size or depth of inspections. This can be leveraged in bypassing WAFs. Finally, inconsistencies in how different technologies process data, similar to the multi-byte SQL injection attack, can be used to evade escaping and evade the WAF's detection.</p>
+
+<h2>Technique 1: Modify Payloads</h2>
+
+<p>Instead of simply encoding or double encoding, modify the payload to specifically evade the WAF's detection. This involves understanding why the payload is blocked and modifying it to avoid detection. This can be done manually or using fuzzing tools.</p>
+
+<h2>Technique 2: Payload Size</h2>
+
+<p>Some WAFs don't check payloads over a specific size. By making the payload large enough, it can be bypassed. This can be done by adding characters to the payload or using a tool that can create large payloads.</p>
+
+<h2>Technique 3: Inconsistent Interpretation of Data</h2>
+
+<p>WAFs can have generic rule sets that are not application-specific. By exploiting the application's behavior and manipulating the payload to take advantage of this inconsistency, it can be bypassed. This involves testing different characters and payloads to understand how the WAF and application interpret data differently.</p>
+
+<h3>In Conclusion</h3>
+
+<p>Web application firewalls can be bypassed using various techniques. By understanding the underlying reasons for bypassing, such as WAF handling, performance, and inconsistent interpretation of data, it's possible to exploit these weaknesses to evade detection. Remember to take a targeted approach when modifying payloads, and leverage the weaknesses in the WAF to successfully bypass it.</p>
