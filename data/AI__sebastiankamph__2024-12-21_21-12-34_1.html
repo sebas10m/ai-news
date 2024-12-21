@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flux Tools Depth and Canny Workflow</title>
+</head>
+<body>
+	<h1>Flux Tools Depth and Canny Workflow</h1>
+	<p>Control nets have been available for quite some time, but there are some new players on the market. This workflow uses the official Black Forest Labs Depth and Canny models for Flux.</p>
+	<h2>The Workflow</h2>
+	<p>The workflow involves loading two diffusion models, one for depth and one for canny. The image is then processed in two passes, first with the depth model and then with the canny model. The control net strength can be adjusted to fine-tune the output.</p>
+	<h3(Settings)</h3>
+	<ol>
+		<li>Loading the models: <code>FB18, Canny, and Depth</code></li>
+		<li>Adjusting the control net strength: <code>20 steps</code></li>
+		<li>Swapping between canny and depth: <code>switch case</code></li>
+	</ol>
+	<h3>Example 1: Viking Woman</h3>
+	<img src="viking_woman.jpg" alt="Viking Woman">
+	<p>Initial output: <img src="initial_output.jpg" alt="Initial Output"></p>
+	<p>Final output: <img src="final_output.jpg" alt="Final Output"></p>
+	<h3>Example 2: Man Portrait</h3>
+	<img src="man_portrait.jpg" alt="Man Portrait">
+	<p>Initial output: <img src="initial_output.jpg" alt="Initial Output"></p>
+	<p>Final output: <img src="final_output.jpg" alt="Final Output"></p>
+	<h3>Conclusion</h3>
+	<p>The Flux Tools Depth and Canny workflow offers a flexible and creative way to process images using official control net models. The control net strength can be adjusted to fine-tune the output, and the workflow can be used to create a variety of effects.</p>
+</body>
+</html>
