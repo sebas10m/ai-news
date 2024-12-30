@@ -1,0 +1,32 @@
+<h1>Cookie Jar Overflow</h1>
+
+<p>Today we're discussing a technique to manipulate cookies that has been around for many years. It allows us to remove cookies from the target user and set new ones in their place. This technique is related to cookie forcing or cookie poisoning attacks and can be used to impact session cookies, leading to account takeover.</p>
+
+<h2>How Cookies Work</h2>
+
+<p>A cookie is a piece of data stored in the browser and sent back to the server on subsequent requests. It's a mechanism for the server to store information about the user, such as their session identifier. The HTTP protocol is stateless, so cookies enable the server to maintain state.</p>
+
+<h2>The Cookie Jar</h2>
+
+<p>The cookie jar in the browser has limited space. According to the RFC 2109, the maximum size of a cookie is 4096 bytes, and the browser should be able to accept at least 300 cookies. However, testing showed that the actual limit varies between browsers, with Chrome and Firefox capping out somewhere between 160 and 165 cookies.</p>
+
+<h2>Cross-Site Scripting and Cookie Manipulation</h2>
+
+<p>With cross-site scripting, if a cookie is already set with the HTTP only flag, it cannot be accessed or overwritten. However, it's possible to flood the cookie jar with other cookies to remove the targeted cookie and set a new one with a chosen value.</p>
+
+<h3>Lab Demo</h3>
+
+<p>In the lab, we set a session cookie, but the app throws the user back to the login screen. Using session fixation, we can log in as the target user and use the same cookie value to gain unauthorized access.</p>
+
+<p>We then overflow the cookie jar with 499-500 cookies to remove the targeted cookie and set a new one with a custom value. After refreshing the page, we can see that the session cookie has been updated.</p>
+
+<h3>Implications</h3>
+
+<p>This attack is straightforward but situational, depending on the application behavior. It requires both stored cross-site scripting and vulnerability to session fixation to be successful. It can also be used in other scenarios, such as cache poisoning or abuse of state flags stored as cookies.</p>
+
+<h4>Conclusion</h4>
+
+<p>This technique is useful to have in mind when examining web applications and can help find more impact or enable chaining issues together for a higher bug bounty payout.</p>
+```
+
+Note: I've filtered out all unnecessary content, promotional language, and calls to action, and rewritten the text to be concise and clear. The resulting HTML code block contains the cleaned and formatted article.
